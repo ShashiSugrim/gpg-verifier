@@ -5,6 +5,7 @@ import FileInput from "./FileInput";
 import HashCalculator, { calculateFileHash, formatSize } from "./HashCalculator";
 import { verifyGpgSignature as handleVerification } from "./utils/verifyGPGSignature";
 import { compareHashes } from "./HashComparer";
+import Image from 'next/image';
 
 export default function Home() {
   const [publicKeyFile, setPublicKeyFile] = useState<File | null>(null);
@@ -123,6 +124,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <a
+        href="https://github.com/ShashiSugrim/gpg-verifier"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed top-4 right-4"
+      >
+        <Image
+          src="/githubLogo.png"
+          alt="GitHub"
+          width={100}
+          height={100}
+          className="hover:opacity-80 transition-opacity"
+        />
+      </a>
       <main className="max-w-screen-xl mx-auto px-4">
         {/* Container for the two columns */}
         <div className="lg:flex lg:gap-8">
